@@ -32,8 +32,8 @@ class Catalog extends StatelessWidget {
         Form(
           key: _formKey,
           child: TextFormFieldSB(
-            validator: CPFValidator(),
-            controller: TextEditingController(text: "Teste"),
+            validatorDelegate: CPFValidatorDelegate(),
+            controller: TextEditingController(),
           ),
         ),
         TextButton(

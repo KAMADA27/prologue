@@ -5,12 +5,15 @@ import 'package:prologue/theme/theme_data_sb.dart';
 void main() {
   testWidgets('Validator call', (WidgetTester tester) async {
     final _formKey = GlobalKey<FormState>();
+    final _controller = TextEditingController();
     await tester.pumpWidget(MaterialApp(
       home: Material(
-        child: TextFormFieldSB(
+        child: Form(
           key: _formKey,
-          controller: TextEditingController(text: "teste"),
-          validator: CPFValidator(),
+          child: TextFormFieldSB(
+            controller: _controller,
+            validatorDelegate: CPFValidatorDelegate(),
+          ),
         ),
       ),
     ));
@@ -20,6 +23,5 @@ void main() {
     if (_formKey.currentState!.validate()) {
       print("aaa");
     }
-
   });
 }
