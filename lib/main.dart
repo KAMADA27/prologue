@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:prologue/forms/validators/cpf_validator_delegate.dart';
 import 'package:prologue/theme/theme_data_sb.dart';
+
+import 'forms/inputs/text_form_field_sb.dart';
 
 void main() {
   runApp(const MyApp());
@@ -44,6 +47,5 @@ class Catalog extends StatelessWidget {
         )
       ],
     );
-    return Container();
   }
 }
