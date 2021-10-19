@@ -30,22 +30,24 @@ class Catalog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Form(
-          key: _formKey,
-          child: TextFormFieldSB(
-            validatorDelegate: CPFValidatorDelegate(),
-            controller: TextEditingController(),
+    return SafeArea(
+      child: Column(
+        children: [
+          Form(
+            key: _formKey,
+            child: TextFormFieldSB(
+              validatorDelegate: CPFValidatorDelegate(),
+              controller: TextEditingController(),
+            ),
           ),
-        ),
-        TextButton(
-          onPressed: () {
-            _formKey.currentState!.validate();
-          },
-          child: const Text("OK"),
-        )
-      ],
+          TextButton(
+            onPressed: () {
+              _formKey.currentState!.validate();
+            },
+            child: const Text("OK"),
+          )
+        ],
+      ),
     );
   }
 }

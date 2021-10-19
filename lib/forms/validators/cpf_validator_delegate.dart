@@ -22,7 +22,6 @@ class CPFValidatorDelegate implements Validator {
   String checkFormatAndRemoveInvalidCharacters(String? cpf) {
     cpf = RegExp(r'^\d{3}\.\d{3}\.\d{3}\-\d{2}$').stringMatch(cpf.toString());
     cpf = cpf == null ? '' : cpf.replaceAll(RegExp(r'[^0-9]'), '');
-    log(cpf);
     return cpf;
   }
 
@@ -44,7 +43,6 @@ class CPFValidatorDelegate implements Validator {
   @override
   String? validate(String? text) {
     String cpf = checkFormatAndRemoveInvalidCharacters(text);
-    log(cpf);
     if (cpf == '') {
       return _invalidFormat;
     }

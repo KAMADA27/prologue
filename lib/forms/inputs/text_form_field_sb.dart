@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:prologue/forms/masks/cpf_input_mask.dart';
 import 'package:prologue/forms/validators/validator.dart';
 
 class TextFormFieldSB extends StatelessWidget {
@@ -26,6 +28,7 @@ class TextFormFieldSB extends StatelessWidget {
       keyboardType: validatorDelegate.textInputType,
       focusNode: validatorDelegate.focusNode,
       decoration: inputDecoration ?? _defaultInputDecoration,
+      inputFormatters: [InputMasks.cpfMask],
     );
   }
 }
