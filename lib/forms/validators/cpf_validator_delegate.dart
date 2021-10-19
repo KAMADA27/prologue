@@ -6,6 +6,7 @@ import 'package:prologue/forms/validators/validator.dart';
 class CPFValidatorDelegate implements Validator {
   final String _invalidCpf = 'Cpf inválido';
   final String _invalidFormat = 'Formato de cpf inválido';
+  final String _cpfMandatory = 'Cpf obrigatório';
 
   @override
   late final FocusNode? focusNode;
@@ -14,7 +15,7 @@ class CPFValidatorDelegate implements Validator {
   late TextInputType textInputType = TextInputType.number;
 
   @override
-  int maxLength = 15;
+  int maxLength = 14;
 
   CPFValidatorDelegate({this.focusNode});
 
@@ -41,7 +42,10 @@ class CPFValidatorDelegate implements Validator {
   }
 
   @override
-  String? validate(String? text) {
+  String? validate({String? text, bool mandatory = false}) {
+    if (mandatory && (text != null && text.isNotEmpty) || text == null) {
+      return _cpfMandatory;
+    }
     String cpf = checkFormatAndRemoveInvalidCharacters(text);
     if (cpf == '') {
       return _invalidFormat;

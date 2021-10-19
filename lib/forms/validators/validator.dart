@@ -7,5 +7,5 @@ abstract class Validator {
   late InputDecoration? inputDecoration = const InputDecoration(
       floatingLabelBehavior: FloatingLabelBehavior.always);
 
-  String? validate(String? text);
+  String? validate({String? text, bool mandatory = false});
 }
