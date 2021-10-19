@@ -14,9 +14,6 @@ class CPFValidatorDelegate implements Validator {
   @override
   late TextInputType textInputType = TextInputType.number;
 
-  @override
-  int maxLength = 14;
-
   CPFValidatorDelegate({this.focusNode});
 
   /// Check if CPF has a valid format and remove the non numeric characters
@@ -24,6 +21,12 @@ class CPFValidatorDelegate implements Validator {
     cpf = RegExp(r'^\d{3}\.\d{3}\.\d{3}\-\d{2}$').stringMatch(cpf.toString());
     cpf = cpf == null ? '' : cpf.replaceAll(RegExp(r'[^0-9]'), '');
     return cpf;
+  }
+
+  /// Check's if the current text string is valid
+  bool _isValidString(String cpf) {
+    final sameRepeatedNumbers = RegExp(r'(?!(\d)\1{10})\d{11}');
+    return sameRepeatedNumbers.hasMatch(cpf);
   }
 
   /// verify de last two digits from CPF to check if is a valid CPF
@@ -42,15 +45,15 @@ class CPFValidatorDelegate implements Validator {
   }
 
   @override
-  String? validate({String? text, bool mandatory = false}) {
-    if (mandatory && (text != null && text.isNotEmpty) || text == null) {
+  String? validate({String? text = '', bool mandatory = false}) {
+    if (mandatory && text!.isEmpty) {
       return _cpfMandatory;
     }
     String cpf = checkFormatAndRemoveInvalidCharacters(text);
-    if (cpf == '') {
+    if (cpf.isEmpty || cpf.length != 11) {
       return _invalidFormat;
     }
-    if (cpf.length > 11) {
+    if (!_isValidString(cpf)) {
       return _invalidCpf;
     }
     dynamic numbers = cpf.substring(0, 9);
