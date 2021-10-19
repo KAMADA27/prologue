@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:prologue/theme/theme_data_sb.dart';
 
 import '../enums/button.dart';
 
@@ -28,7 +27,7 @@ class TextButtonSB extends StatelessWidget {
       primary: theme.textTheme.button?.color,
     );
     final secondaryButtonStyle = TextButton.styleFrom(
-      primary: ThemeDataSB.secondaryColor
+      primary: const Color(0xFF8f8d90)
     );
     final dangerButtonStyle = TextButton.styleFrom(
       primary: theme.errorColor
