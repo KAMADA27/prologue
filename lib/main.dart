@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:prologue/buttons/text_button_sb.dart';
+import 'package:prologue/enums/button.dart';
+import 'package:prologue/forms/inputs/text_form_field_sb.dart';
 import 'package:prologue/forms/validators/cpf_validator_delegate.dart';
 import 'package:prologue/theme/theme_data_sb.dart';
-
-import 'forms/inputs/text_form_field_sb.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,18 +16,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeDataSB.getThemeData(),
-      home: Scaffold(
-        body: Center(child: Catalog()),
-      ),
+      theme: ThemeDataSB.defaultTheme,
+      darkTheme: ThemeDataSB.defaultTheme,
+      themeMode: ThemeMode.dark,
+      home: Catalog(),
     );
   }
 }
 
 class Catalog extends StatelessWidget {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
   Catalog({Key? key}) : super(key: key);
+  final GlobalKey<FormState> _formKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
