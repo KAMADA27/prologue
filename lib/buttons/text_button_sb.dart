@@ -4,31 +4,33 @@ import '../enums/button.dart';
 
 class TextButtonSB extends StatelessWidget {
   final String text;
-  final Function callback;
+  final Function()? onPressed;
   final ButtonType? type;
   final bool? underline;
 
   const TextButtonSB({
     Key? key, 
     required this.text,
-    required this.callback,
+    required this.onPressed,
     this.type = ButtonType.primary,
     this.underline = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     final ButtonStyle textButtonStyle = TextButton.styleFrom(
       splashFactory: NoSplash.splashFactory
     );
     final primaryButtonStyle = TextButton.styleFrom(
-      primary: const Color(0xFF02b7d2)
+      primary: theme.textTheme.button?.color,
     );
     final secondaryButtonStyle = TextButton.styleFrom(
       primary: const Color(0xFF8f8d90)
     );
     final dangerButtonStyle = TextButton.styleFrom(
-      primary: const Color(0xFFF70808)
+      primary: theme.errorColor
     );
 
     ButtonStyle _getButtonStyle() {
@@ -61,7 +63,7 @@ class TextButtonSB extends StatelessWidget {
     }
 
     return TextButton(
-      onPressed: () => callback(),
+      onPressed: onPressed,
       child: Text(
         text,
         style: TextStyle(

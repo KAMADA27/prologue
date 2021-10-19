@@ -11,7 +11,7 @@ void main() {
   testWidgets("Text button test", (WidgetTester tester) async {
     var pressed = false;
 
-    final widget = TextButtonSB(text: 'Click me', callback: () {
+    final widget = TextButtonSB(text: 'Click me', onPressed: () {
       pressed = true;
     });
 
