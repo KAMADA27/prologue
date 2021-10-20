@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prologue/forms/inputs/text_form_field_sb.dart';
+import 'package:prologue/forms/validators/cnpj_validator_delegate.dart';
 import 'package:prologue/forms/validators/cpf_validator_delegate.dart';
 import 'package:prologue/theme/theme_data_sb.dart';
 
@@ -36,22 +37,11 @@ class Catalog extends StatelessWidget {
             children: [
               Form(
                 key: _formKey,
-                child: Column(
-                  children: [
-                    TextFormField(
-                      controller: TextEditingController(),
-                      decoration: const InputDecoration(
-                        hintText: "Heading",
-                        labelText: "Headinggggggggggggggggggggggggggggggggggggg"
-                      ),
-                    ),
-                    TextFormFieldSB(
-                      validatorDelegate: CPFValidatorDelegate(),
-                      controller: TextEditingController(),
-                      inputDecoration: CPFValidatorDelegate().inputDecoration,
-                      mandatory: true,
-                    ),
-                  ],
+                child: TextFormFieldSB(
+                  validatorDelegate: CnpjValidatorDelegate(),
+                  controller: TextEditingController(),
+                  inputDecoration: CnpjValidatorDelegate().inputDecoration,
+                  mandatory: true,
                 ),
               ),
               TextButton(

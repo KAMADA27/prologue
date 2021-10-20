@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:prologue/forms/masks/cpf_input_mask.dart';
 import 'package:prologue/forms/validators/validator.dart';
 
 class CPFValidatorDelegate implements Validator {
   final String _invalidCpf = 'Cpf inválido';
   final String _invalidFormat = 'Formato de cpf inválido';
   final String _cpfMandatory = 'Cpf obrigatório';
+  final validatorMask = InputMasks.cnpjMask;
 
   @override
   late final FocusNode? focusNode;
