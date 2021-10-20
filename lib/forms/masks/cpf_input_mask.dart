@@ -37,12 +37,12 @@ class CpfInputMask extends TextInputFormatter {
 class InputMasks {
   static MaskTextInputFormatter cpfMask = MaskTextInputFormatter(
       mask: '999.999.999-99', filter: {'9': RegExp(r'^[0-9]')});
-  MaskTextInputFormatter cnpjMask = MaskTextInputFormatter(
+  static MaskTextInputFormatter cnpjMask = MaskTextInputFormatter(
       mask: '99.999.999/9999-99', filter: {'9': RegExp(r'^[0-9]')});
-  MaskTextInputFormatter phoneMask = MaskTextInputFormatter(
+  static MaskTextInputFormatter phoneMask = MaskTextInputFormatter(
       mask: '(99) 9 9999-9999', filter: {'9': RegExp(r'^[0-9]')});
-  MaskTextInputFormatter currencyMask = MaskTextInputFormatter(
+  static MaskTextInputFormatter currencyMask = MaskTextInputFormatter(
       mask: '999.999.999.999,00', filter: {'9': RegExp(r'^[0-9]')});
-  MaskTextInputFormatter cepMask = MaskTextInputFormatter(
+  static MaskTextInputFormatter cepMask = MaskTextInputFormatter(
       mask: '99.999-999', filter: {'9': RegExp(r'^[0-9]')});
 }

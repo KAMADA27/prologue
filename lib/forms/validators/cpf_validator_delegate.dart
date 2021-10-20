@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:prologue/forms/validators/validator.dart';
 
@@ -24,7 +22,7 @@ class CPFValidatorDelegate implements Validator {
   }
 
   /// Check's if the current text string is valid
-  bool _isValidString(String cpf) {
+  bool _hasValidNumberSequence(String cpf) {
     final sameRepeatedNumbers = RegExp(r'(?!(\d)\1{10})\d{11}');
     return sameRepeatedNumbers.hasMatch(cpf);
   }
@@ -53,7 +51,7 @@ class CPFValidatorDelegate implements Validator {
     if (cpf.isEmpty || cpf.length != 11) {
       return _invalidFormat;
     }
-    if (!_isValidString(cpf)) {
+    if (!_hasValidNumberSequence(cpf)) {
       return _invalidCpf;
     }
     dynamic numbers = cpf.substring(0, 9);

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:prologue/forms/masks/cpf_input_mask.dart';
 import 'package:prologue/forms/validators/validator.dart';
 
