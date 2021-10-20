@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/src/widgets/focus_manager.dart';
 import 'package:flutter/src/services/text_input.dart';
 import 'package:flutter/src/material/input_decorator.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:prologue/forms/validators/validator.dart';
 
 class PhoneValidatorDelegate implements Validator {
@@ -14,7 +17,7 @@ class PhoneValidatorDelegate implements Validator {
   InputDecoration? inputDecoration = const InputDecoration(
       floatingLabelBehavior: FloatingLabelBehavior.always,
       labelText: 'Telefone',
-      hintText: '(00) 00000-0000');
+      hintText: '(00) 0 0000-0000');
 
   @override
   TextInputType textInputType = TextInputType.number;
@@ -25,13 +28,11 @@ class PhoneValidatorDelegate implements Validator {
     if (mandatory && phone.isEmpty) {
       return _phoneMandatory;
     }
-    if (phone.isEmpty || text.length < 10) {
+    if (phone.isEmpty || phone.length < 11) {
       return _phoneFormatInvalid;
     }
-    if (phone.length >= 10) {
+    if (phone.length >= 11) {
       return null;
-    } else {
-      return _phoneFormatInvalid;
     }
   }
 }
