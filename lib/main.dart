@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:prologue/forms/inputs/text_form_field_sb.dart';
-import 'package:prologue/forms/validators/cpf_validator_delegate.dart';
 import 'package:prologue/theme/theme_data_sb.dart';
+
+import 'forms/validators/validator_settings.dart';
 
 void main() {
   runApp(const MyApp());
@@ -41,15 +42,16 @@ class Catalog extends StatelessWidget {
                     TextFormField(
                       controller: TextEditingController(),
                       decoration: const InputDecoration(
-                        hintText: "Heading",
-                        labelText: "Headinggggggggggggggggggggggggggggggggggggg"
-                      ),
+                          hintText: "Heading",
+                          labelText:
+                              "Headinggggggggggggggggggggggggggggggggggggg"),
                     ),
                     TextFormFieldSB(
-                      validatorDelegate: CPFValidatorDelegate(),
                       controller: TextEditingController(),
-                      inputDecoration: CPFValidatorDelegate().inputDecoration,
                       mandatory: true,
+                      formFieldType: FormFieldTypeSB.cnpj,
+                      labelText: "Número de CPF",
+                      hintText: "000.000.000-00",
                     ),
                   ],
                 ),

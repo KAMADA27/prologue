@@ -1,28 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:prologue/forms/masks/cpf_input_mask.dart';
-import 'package:prologue/forms/validators/validator.dart';
+import 'package:flutter/services.dart';
+import 'package:prologue/forms/validators/form_field_options_sb.dart';
+import 'package:prologue/forms/validators/validator_settings.dart';
 
 class TextFormFieldSB extends StatelessWidget {
-  /// Hold a class of type [Validator]
+  /// Hold a class of type [FormFieldOptions]
   /// That should implement a string validation of the given text
-  final Validator validatorDelegate;
+  late final FormFieldOptions _formFieldOptions;
   final bool? mandatory;
   final TextEditingController? controller;
-  final InputDecoration? inputDecoration;
   final int? maxLength;
+  final String hintText;
+  final String labelText;
+  late final FormFieldTypeSB formFieldTypeSB;
+  late final List<TextInputFormatter>? inputFormatters;
 
-  // TODO: IR PARA O TEMA
-  final InputDecoration _defaultInputDecoration = const InputDecoration(
-      floatingLabelBehavior: FloatingLabelBehavior.always);
-
-  const TextFormFieldSB({
+  TextFormFieldSB({
     Key? key,
-    required this.validatorDelegate,
     this.controller,
-    this.inputDecoration,
     this.mandatory,
     this.maxLength,
-  }) : super(key: key);
+    required formFieldTypeSB,
+    required this.hintText,
+    required this.labelText,
+    this.inputFormatters,
+  }) : super(key: key) {
+    _formFieldOptions = ValidatorSettings.getByFormFieldType(
+      formFieldTypeSB,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +36,16 @@ class TextFormFieldSB extends StatelessWidget {
       controller: controller,
       maxLength: maxLength,
       validator: (text) =>
-          validatorDelegate.validate(text: text, mandatory: mandatory ?? false),
-      keyboardType: validatorDelegate.textInputType,
-      focusNode: validatorDelegate.focusNode,
-      decoration: inputDecoration,
-      inputFormatters: [InputMasks.cpfMask],
+          _formFieldOptions.validate(text: text, mandatory: mandatory ?? false),
+      keyboardType: _formFieldOptions.textInputType,
+      focusNode: _formFieldOptions.focusNode,
+      decoration: InputDecoration(
+        labelText: labelText,
+        hintText: hintText,
+      ),
+      inputFormatters: (FormFieldTypeSB.none == formFieldTypeSB)
+          ? inputFormatters
+          : _formFieldOptions.inputMasks,
     );
   }
 }
