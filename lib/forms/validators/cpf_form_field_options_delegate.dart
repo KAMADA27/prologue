@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:prologue/forms/masks/cpf_input_mask.dart';
-import 'package:prologue/forms/validators/form_field_options_sb.dart';
+import 'package:prologue/forms/validators/form_field_options.dart';
 
-class CPFValidatorDelegate implements FormFieldOptions {
+class CpfFormFieldOptionsDelegate implements FormFieldOptions {
   final String _invalidCpf = 'Cpf inválido';
   final String _invalidFormat = 'Formato de cpf inválido';
   final String _cpfMandatory = 'Cpf obrigatório';
@@ -14,7 +14,7 @@ class CPFValidatorDelegate implements FormFieldOptions {
   @override
   late TextInputType textInputType = TextInputType.number;
 
-  CPFValidatorDelegate({this.focusNode});
+  CpfFormFieldOptionsDelegate({this.focusNode});
 
   /// Check if CPF has a valid format and remove the non numeric characters
   String checkFormatAndRemoveInvalidCharacters(String? cpf) {

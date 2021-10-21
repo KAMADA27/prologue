@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:prologue/enums/form_field_type_sb.dart';
-import 'package:prologue/forms/validators/form_field_options_sb.dart';
-import 'package:prologue/forms/validators/validator_settings.dart';
+import 'package:prologue/forms/validators/form_field_options.dart';
+import 'package:prologue/forms/validators/form_field_options_delegate_settings.dart';
 
 class TextFormFieldSB extends StatelessWidget {
   /// Hold a class of type [FormFieldOptions]
@@ -28,7 +28,7 @@ class TextFormFieldSB extends StatelessWidget {
     required this.hintText,
     required this.labelText,
   }) : super(key: key) {
-    _formFieldOptions = ValidatorSettings.getByFormFieldType(
+    _formFieldOptions = FormFieldDelegateSettings.getByFormFieldType(
       formFieldTypeSB,
     );
   }
