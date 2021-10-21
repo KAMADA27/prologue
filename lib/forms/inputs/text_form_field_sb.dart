@@ -20,10 +20,10 @@ class TextFormFieldSB extends StatelessWidget {
     this.controller,
     this.mandatory,
     this.maxLength,
-    required formFieldTypeSB,
+    this.inputFormatters,
+    required this.formFieldTypeSB,
     required this.hintText,
     required this.labelText,
-    this.inputFormatters,
   }) : super(key: key) {
     _formFieldOptions = ValidatorSettings.getByFormFieldType(
       formFieldTypeSB,

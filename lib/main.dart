@@ -39,17 +39,10 @@ class Catalog extends StatelessWidget {
                 key: _formKey,
                 child: Column(
                   children: [
-                    TextFormField(
-                      controller: TextEditingController(),
-                      decoration: const InputDecoration(
-                          hintText: "Heading",
-                          labelText:
-                              "Headinggggggggggggggggggggggggggggggggggggg"),
-                    ),
                     TextFormFieldSB(
                       controller: TextEditingController(),
                       mandatory: true,
-                      formFieldType: FormFieldTypeSB.cnpj,
+                      formFieldTypeSB: FormFieldTypeSB.cnpj,
                       labelText: "Número de CPF",
                       hintText: "000.000.000-00",
                     ),
