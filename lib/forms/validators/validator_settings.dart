@@ -1,13 +1,6 @@
+import 'package:prologue/enums/form_field_type_sb.dart';
 import 'package:prologue/forms/validators/cpf_validator_delegate.dart';
 import 'package:prologue/forms/validators/form_field_options_sb.dart';
-
-enum FormFieldTypeSB {
-  cpf,
-  cnpj,
-  password,
-  email,
-  none,
-}
 
 class ValidatorSettings {
   static FormFieldOptions getByFormFieldType(FormFieldTypeSB formFieldType) {

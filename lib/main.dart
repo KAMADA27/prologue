@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:prologue/enums/form_field_type_sb.dart';
 import 'package:prologue/forms/inputs/text_form_field_sb.dart';
 import 'package:prologue/theme/theme_data_sb.dart';
-
-import 'forms/validators/validator_settings.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,6 +25,7 @@ class MyApp extends StatelessWidget {
 class Catalog extends StatelessWidget {
   Catalog({Key? key}) : super(key: key);
   final GlobalKey<FormState> _formKey = GlobalKey();
+  final _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,10 @@ class Catalog extends StatelessWidget {
                 child: Column(
                   children: [
                     TextFormFieldSB(
-                      controller: TextEditingController(),
+                      controller: _controller,
+                      onChanged: (text) {
+                        print(_controller.text);
+                      },
                       mandatory: true,
                       formFieldTypeSB: FormFieldTypeSB.cnpj,
                       labelText: "Número de CPF",

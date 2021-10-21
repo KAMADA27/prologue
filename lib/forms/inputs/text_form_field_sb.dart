@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:prologue/enums/form_field_type_sb.dart';
 import 'package:prologue/forms/validators/form_field_options_sb.dart';
 import 'package:prologue/forms/validators/validator_settings.dart';
 
@@ -12,6 +13,7 @@ class TextFormFieldSB extends StatelessWidget {
   final int? maxLength;
   final String hintText;
   final String labelText;
+  final Function(String)? onChanged;
   late final FormFieldTypeSB formFieldTypeSB;
   late final List<TextInputFormatter>? inputFormatters;
 
@@ -20,6 +22,7 @@ class TextFormFieldSB extends StatelessWidget {
     this.controller,
     this.mandatory,
     this.maxLength,
+    this.onChanged,
     this.inputFormatters,
     required this.formFieldTypeSB,
     required this.hintText,
@@ -30,11 +33,14 @@ class TextFormFieldSB extends StatelessWidget {
     );
   }
 
+  FormFieldOptions get formFieldOptions => _formFieldOptions;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
       maxLength: maxLength,
+      onChanged: onChanged,
       validator: (text) =>
           _formFieldOptions.validate(text: text, mandatory: mandatory ?? false),
       keyboardType: _formFieldOptions.textInputType,
