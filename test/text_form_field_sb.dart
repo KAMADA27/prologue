@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:prologue/forms/inputs/text_form_field_sb.dart';
-import 'package:prologue/forms/validators/cpf_validator_delegate.dart';
+import 'package:prologue/forms/validators/validator_settings.dart';
 
 void main() {
   testWidgets('Validator call', (WidgetTester tester) async {
@@ -13,7 +13,9 @@ void main() {
           key: _formKey,
           child: TextFormFieldSB(
             controller: _controller,
-            validatorDelegate: CPFValidatorDelegate(),
+            hintText: "Hint Text",
+            labelText: "Label Text",
+            formFieldTypeSB: FormFieldTypeSB.none,
           ),
         ),
       ),
