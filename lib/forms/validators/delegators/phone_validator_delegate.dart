@@ -1,12 +1,10 @@
 import 'dart:developer';
 
-import 'package:flutter/src/widgets/focus_manager.dart';
-import 'package:flutter/src/services/text_input.dart';
-import 'package:flutter/src/material/input_decorator.dart';
+import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:prologue/forms/validators/validator.dart';
+import 'package:prologue/forms/validators/form_field_options.dart';
 
-class PhoneValidatorDelegate implements Validator {
+class PhoneValidatorDelegate implements FormFieldOptions {
   final String _phoneMandatory = 'O telefone é obrigatório';
   final String _phoneFormatInvalid = 'O formato do telefone é invalido';
 
@@ -23,6 +21,9 @@ class PhoneValidatorDelegate implements Validator {
   TextInputType textInputType = TextInputType.number;
 
   @override
+  List<MaskTextInputFormatter>? inputMasks;
+
+  @override
   String? validate({String? text = '', bool mandatory = false}) {
     String phone = text!.replaceAll(RegExp(r'[^0-9]'), '');
     if (mandatory && phone.isEmpty) {
@@ -35,4 +36,6 @@ class PhoneValidatorDelegate implements Validator {
       return null;
     }
   }
+
+
 }

@@ -1,9 +1,14 @@
+import 'package:doc_widget/doc_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:prologue/enums/form_field_type_sb.dart';
+import 'package:prologue/forms/inputs/text_form_field_sb/form_field_type_enum_sb.dart';
 import 'package:prologue/forms/validators/form_field_options.dart';
-import 'package:prologue/forms/validators/form_field_options_delegate_settings.dart';
+import 'package:prologue/forms/validators/delegators/form_field_options_delegate_settings.dart';
 
+/// TextFormFieldSB
+///
+/// Aqui falhou
+@docWidget
 class TextFormFieldSB extends StatelessWidget {
   /// Hold a class of type [FormFieldOptions]
   /// That should implement a string validation of the given text

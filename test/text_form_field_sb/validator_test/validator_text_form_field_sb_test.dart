@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:prologue/enums/form_field_type_sb.dart';
-import 'package:prologue/forms/inputs/text_form_field_sb.dart';
+import 'package:prologue/forms/inputs/text_form_field_sb/form_field_type_enum_sb.dart';
+import 'package:prologue/forms/inputs/text_form_field_sb/text_form_field_sb.dart';
 
 void main() {
 
