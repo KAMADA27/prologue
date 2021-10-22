@@ -43,6 +43,7 @@ void main() {
       expect(widget.formFieldTypeSB, FormFieldTypeSB.cpf);
       expect(widget.formFieldOptions.inputMasks!.first, InputMasks.cpfMask);
       expect(widget.controller!.text, validCPF);
+      expect(find.text(validCPF), findsOneWidget);
     });
 
     testWidgets("Type CNPJ", (WidgetTester tester) async {
@@ -70,6 +71,7 @@ void main() {
       expect(widget.formFieldTypeSB, FormFieldTypeSB.cnpj);
       expect(widget.formFieldOptions.inputMasks!.first, InputMasks.cnpjMask);
       expect(widget.controller!.text, validCNPJ);
+      expect(find.text(validCNPJ), findsOneWidget);
     });
   });
 }
