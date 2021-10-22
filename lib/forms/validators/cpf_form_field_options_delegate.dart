@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:prologue/forms/masks/masks.dart';
-import 'package:prologue/forms/validators/validator.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:prologue/forms/masks/cpf_input_mask.dart';
+import 'package:prologue/forms/validators/form_field_options.dart';
 
-class CPFValidatorDelegate implements Validator {
+class CpfFormFieldOptionsDelegate implements FormFieldOptions {
   final String _invalidCpf = 'Cpf inválido';
   final String _invalidFormat = 'Formato de cpf inválido';
   final String _cpfMandatory = 'Cpf obrigatório';
-  final validatorMask = InputMasks.cnpjMask;
 
   @override
   late final FocusNode? focusNode;
@@ -14,7 +14,7 @@ class CPFValidatorDelegate implements Validator {
   @override
   late TextInputType textInputType = TextInputType.number;
 
-  CPFValidatorDelegate({this.focusNode});
+  CpfFormFieldOptionsDelegate({this.focusNode});
 
   /// Check if CPF has a valid format and remove the non numeric characters
   String checkFormatAndRemoveInvalidCharacters(String? cpf) {
@@ -68,8 +68,5 @@ class CPFValidatorDelegate implements Validator {
   }
 
   @override
-  InputDecoration? inputDecoration = const InputDecoration(
-      floatingLabelBehavior: FloatingLabelBehavior.always,
-      labelText: 'Número do CPF',
-      hintText: '000.000.000-00');
+  List<MaskTextInputFormatter>? inputMasks = [InputMasks.cpfMask];
 }

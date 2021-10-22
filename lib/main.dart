@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:prologue/enums/form_field_type_sb.dart';
 import 'package:prologue/forms/inputs/text_form_field_sb.dart';
-import 'package:prologue/forms/validators/cnpj_validator_delegate.dart';
-import 'package:prologue/forms/validators/cpf_validator_delegate.dart';
 import 'package:prologue/theme/theme_data_sb.dart';
 
 void main() {
@@ -26,6 +25,7 @@ class MyApp extends StatelessWidget {
 class Catalog extends StatelessWidget {
   Catalog({Key? key}) : super(key: key);
   final GlobalKey<FormState> _formKey = GlobalKey();
+  final _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +37,19 @@ class Catalog extends StatelessWidget {
             children: [
               Form(
                 key: _formKey,
-                child: TextFormFieldSB(
-                  validatorDelegate: CnpjValidatorDelegate(),
-                  controller: TextEditingController(),
-                  inputDecoration: CnpjValidatorDelegate().inputDecoration,
-                  mandatory: true,
+                child: Column(
+                  children: [
+                    TextFormFieldSB(
+                      controller: _controller,
+                      onChanged: (text) {
+                        print(_controller.text);
+                      },
+                      mandatory: true,
+                      formFieldTypeSB: FormFieldTypeSB.cnpj,
+                      labelText: "Número de CNPJ",
+                      hintText: "99.999.999/9999-99",
+                    ),
+                  ],
                 ),
               ),
               TextButton(

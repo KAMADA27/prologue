@@ -9,19 +9,8 @@ class ThemeDataSB {
     return ThemeData(
       primarySwatch: Colors.blue,
       fontFamily: "Montserrat",
-      errorColor: ColorsSB.errorColor,
-      appBarTheme: AppBarTheme(
-        color: Colors.transparent,
-        titleTextStyle: TextStyle(
-          color: ColorsSB.primaryColor,
-          fontSize: FontsSB.large,
-        ),
-        iconTheme: IconThemeData(
-          color: ColorsSB.primaryColor 
-        ),
-        elevation: 0
-      ),
-      inputDecorationTheme: InputDecorationTheme(
+      errorColor: _errorColor,
+      inputDecorationTheme: const InputDecorationTheme(
         floatingLabelStyle: TextStyle(
           color: ColorsSB.subtitleColor,
         ),
