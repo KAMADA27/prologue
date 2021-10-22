@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:prologue/buttons/text_button_sb.dart';
+import 'package:prologue/widgets/buttons/text_button_sb/text_button_sb.dart';
 
 import 'package:prologue/enums/button.dart';
 

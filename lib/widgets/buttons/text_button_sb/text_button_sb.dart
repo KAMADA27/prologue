@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../enums/button.dart';
+import 'package:prologue/enums/button.dart';
+import 'package:prologue/constants/colors_sb.dart';
 
 class TextButtonSB extends StatelessWidget {
   final String text;
-  final Function()? onPressed;
+  final Function onPressed;
   final ButtonType? type;
   final bool? underline;
 
@@ -24,10 +25,10 @@ class TextButtonSB extends StatelessWidget {
       splashFactory: NoSplash.splashFactory
     );
     final primaryButtonStyle = TextButton.styleFrom(
-      primary: theme.textTheme.button?.color,
+      primary: ColorsSB.primaryColor
     );
     final secondaryButtonStyle = TextButton.styleFrom(
-      primary: const Color(0xFF8f8d90)
+      primary: ColorsSB.secondaryColor
     );
     final dangerButtonStyle = TextButton.styleFrom(
       primary: theme.errorColor
@@ -63,11 +64,11 @@ class TextButtonSB extends StatelessWidget {
     }
 
     return TextButton(
-      onPressed: onPressed,
+      onPressed: () => onPressed(),
       child: Text(
         text,
         style: TextStyle(
-          decoration: _underlineHandler()
+          decoration: _underlineHandler(),
         )
       ),
       style: _getButtonStyle()

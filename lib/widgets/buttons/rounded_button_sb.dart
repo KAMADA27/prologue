@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 
-import '../enums/button.dart';
+import 'package:prologue/constants/colors_sb.dart';
+import 'package:prologue/enums/button.dart';
+
 class RoundedButtonSB extends StatelessWidget {
   final String text;
-  final Function callback;
+  final Function onPressed;
   final ButtonType? type;
   final ButtonSize? size;
 
   const RoundedButtonSB({
     Key? key,
     required this.text,
-    required this.callback,
+    required this.onPressed,
     this.type = ButtonType.primary,
     this.size = ButtonSize.medium,
   }) : super(key: key);
@@ -39,13 +41,13 @@ class RoundedButtonSB extends StatelessWidget {
       fixedSize: Size(buttonWidth, buttonHeight)
     );
     final primaryButtonStyle = TextButton.styleFrom(
-      primary: Colors.white,
-      backgroundColor: const Color(0xFF02b7d2),
+      primary: ColorsSB.white,
+      backgroundColor: ColorsSB.primaryColor,
     );
     final secondaryButtonStyle = TextButton.styleFrom(
-      primary: const Color(0xFF02b7d2),
-      backgroundColor: Colors.white,
-      side: const BorderSide(color: Color(0xFF02b7d2))
+      primary: ColorsSB.primaryColor,
+      backgroundColor: ColorsSB.white,
+      side: BorderSide(color: ColorsSB.primaryColor)
     );
 
     ButtonStyle _getButtonStyle() {
@@ -66,8 +68,11 @@ class RoundedButtonSB extends StatelessWidget {
     }
 
     return TextButton(
-      onPressed: () => callback(), 
-      child: Text(text),
+      onPressed: () => onPressed(), 
+      child: Text(
+        text,
+        style: const TextStyle(fontWeight: FontWeight.bold),
+      ),
       style: _getButtonStyle()
     );
   }

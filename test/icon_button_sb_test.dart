@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:prologue/buttons/icon_button_sb.dart';
+import 'package:prologue/widgets/buttons/icon_button_sb.dart';
 
 Widget _makeTestable(Widget widget) => MaterialApp(home: widget);
 
@@ -9,7 +9,7 @@ void main() {
   testWidgets("Icon button test", (WidgetTester tester) async {
     var pressed = false;
 
-    final widget = IconButtonSB(icon: Icons.visibility, callback: () {
+    final widget = IconButtonSB(icon: Icons.visibility, onPressed: () {
       pressed = true;
     });
 

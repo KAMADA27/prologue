@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 
+import 'package:prologue/constants/colors_sb.dart';
+
 class IconButtonSB extends StatelessWidget {
   final String? text;
   final IconData icon;
-  final Function callback;
+  final Function onPressed;
 
   const IconButtonSB({
     Key? key,
     this.text,
     required this.icon,
-    required this.callback
+    required this.onPressed
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () => callback(), 
+      onPressed: () => onPressed(), 
       style: TextButton.styleFrom(
         splashFactory: NoSplash.splashFactory
       ),
@@ -24,12 +26,12 @@ class IconButtonSB extends StatelessWidget {
         children: <Widget>[
           Icon(
             icon,
-            color: const Color(0xFF4F4E50),
+            color: ColorsSB.bodyColor,
           ),
           if (text != null) Text(
             text!,
-            style: const TextStyle(
-              color: Color(0xFF4F4E50)
+            style: TextStyle(
+              color: ColorsSB.bodyColor
             ),
           )
         ],

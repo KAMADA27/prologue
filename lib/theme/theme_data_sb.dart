@@ -1,58 +1,65 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-const _primaryColor = Color(0xFF00B7D2);
-const _bodyTextColor = Color(0xFF4F4E50);
-const _subTitleTextColor = Color(0xFF3E3E3E);
-const _errorColor = Color(0xFFF70808);
-const _hintColor = Color(0xFF99989A);
+import '../constants/colors_sb.dart';
+import '../constants/fonts_sb.dart';
 
 class ThemeDataSB {
   static ThemeData get defaultTheme {
     return ThemeData(
       primarySwatch: Colors.blue,
       fontFamily: "Montserrat",
-      errorColor: _errorColor,
-      inputDecorationTheme: const InputDecorationTheme(
+      errorColor: ColorsSB.errorColor,
+      appBarTheme: AppBarTheme(
+        color: Colors.transparent,
+        titleTextStyle: TextStyle(
+          color: ColorsSB.primaryColor,
+          fontSize: FontsSB.large,
+        ),
+        iconTheme: IconThemeData(
+          color: ColorsSB.primaryColor 
+        ),
+        elevation: 0
+      ),
+      inputDecorationTheme: InputDecorationTheme(
         floatingLabelStyle: TextStyle(
-          color: _subTitleTextColor,
+          color: ColorsSB.subtitleColor,
         ),
         focusedBorder: UnderlineInputBorder(
           borderSide: BorderSide(
-            color: _subTitleTextColor,
+            color: ColorsSB.subtitleColor,
           ),
         ),
         hintStyle: TextStyle(
-          fontSize: 16,
-          color: _hintColor,
+          fontSize: FontsSB.medium,
+          color: ColorsSB.hintColor,
         ),
         labelStyle: TextStyle(
-          fontSize: 16,
+          fontSize: FontsSB.medium,
           overflow: TextOverflow.ellipsis
         ),
       ),
-      textTheme: const TextTheme(
-        button: TextStyle(color: _primaryColor, fontWeight: FontWeight.bold),
+      textTheme: TextTheme(
         bodyText1: TextStyle(
-          color: _bodyTextColor,
-          fontSize: 16.0,
+          color: ColorsSB.bodyColor,
+          fontSize: FontsSB.medium,
         ),
         bodyText2: TextStyle(
-          color: _bodyTextColor,
+          color: ColorsSB.bodyColor,
           fontWeight: FontWeight.w200,
-          fontSize: 16.0,
+          fontSize: FontsSB.medium,
         ),
         subtitle1: TextStyle(
-          color: _subTitleTextColor,
-          fontSize: 14.0,
+          color: ColorsSB.subtitleColor,
+          fontSize: FontsSB.small,
         ),
         subtitle2: TextStyle(
-          color: _subTitleTextColor,
-          fontSize: 12.0,
+          color: ColorsSB.subtitleColor,
+          fontSize: FontsSB.extraSmall,
         ),
         headline6: TextStyle(
-          color: _primaryColor,
-          fontSize: 24.0,
+          color: ColorsSB.primaryColor,
+          fontSize: FontsSB.large,
         ),
       ),
     );
