@@ -45,7 +45,7 @@ class Catalog extends StatelessWidget {
                         print(_controller.text);
                       },
                       mandatory: true,
-                      formFieldTypeSB: FormFieldTypeSB.cnpj,
+                      formFieldTypeSB: FormFieldTypeSB.cpf,
                       labelText: "Número de CNPJ",
                       hintText: "99.999.999/9999-99",
                     ),
