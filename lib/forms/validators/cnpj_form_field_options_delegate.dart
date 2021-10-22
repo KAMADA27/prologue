@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:prologue/forms/masks/cpf_input_mask.dart';
+import 'package:prologue/forms/masks/masks.dart';
 import 'package:prologue/forms/validators/form_field_options.dart';
 
 class CnpjFormFieldOptionsDelegate implements FormFieldOptions {

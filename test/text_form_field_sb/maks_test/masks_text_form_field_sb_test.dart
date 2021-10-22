@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:prologue/enums/form_field_type_sb.dart';
 import 'package:prologue/forms/inputs/text_form_field_sb.dart';
-import 'package:prologue/forms/masks/cpf_input_mask.dart';
+import 'package:prologue/forms/masks/masks.dart';
 import 'package:prologue/theme/theme_data_sb.dart';
 
 void main() {

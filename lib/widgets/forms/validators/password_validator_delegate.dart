@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import './validator.dart';
+import 'package:prologue/forms/validators/validator.dart';
 
 class PasswordValidatorDelegate implements Validator {
   final String _invalidPassword = 'Senha inválido';

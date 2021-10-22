@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
-import '../constants/colors_sb.dart';
-import '../constants/fonts_sb.dart';
+import 'package:prologue/constants/colors_sb.dart';
+import 'package:prologue/constants/fonts_sb.dart';
 
 class ThemeDataSB {
   static ThemeData get defaultTheme {
     return ThemeData(
       primarySwatch: Colors.blue,
       fontFamily: "Montserrat",
-      errorColor: _errorColor,
-      inputDecorationTheme: const InputDecorationTheme(
+      errorColor: ColorsSB.errorColor,
+      inputDecorationTheme: InputDecorationTheme(
         floatingLabelStyle: TextStyle(
           color: ColorsSB.subtitleColor,
         ),
@@ -25,7 +24,7 @@ class ThemeDataSB {
         ),
         labelStyle: TextStyle(
           fontSize: FontsSB.medium,
-          overflow: TextOverflow.ellipsis
+          overflow: TextOverflow.ellipsis,
         ),
       ),
       textTheme: TextTheme(
