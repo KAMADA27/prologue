@@ -1,17 +1,15 @@
-import 'package:doc_widget/doc_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:prologue/forms/inputs/text_form_field_sb/form_field_type_enum_sb.dart';
 import 'package:prologue/forms/validators/form_field_options.dart';
 import 'package:prologue/forms/validators/delegators/form_field_options_delegate_settings.dart';
 
-/// TextFormFieldSB
+/// It is a custom [TextFormField] to Social Bank
+/// This TextFormField will hold a class [FormFieldOptions]
+/// set by the [FormFieldTypeSB].
 ///
-/// Aqui falhou
-@docWidget
+/// As the type is set the input configuration and masks are applied
 class TextFormFieldSB extends StatelessWidget {
-  /// Hold a class of type [FormFieldOptions]
-  /// That should implement a string validation of the given text
   late final FormFieldOptions _formFieldOptions;
   final bool? mandatory;
   final TextEditingController? controller;
@@ -22,6 +20,9 @@ class TextFormFieldSB extends StatelessWidget {
   late final FormFieldTypeSB formFieldTypeSB;
   late final List<TextInputFormatter>? inputFormatters;
 
+  /// TextFormFieldSB
+  ///
+  /// Aqui falhou Construtor
   TextFormFieldSB({
     Key? key,
     this.controller,
