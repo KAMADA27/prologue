@@ -26,7 +26,7 @@ class CnpjFormFieldOptionsDelegate implements FormFieldOptions {
       return _mandatoryValue;
     }
 
-    if (_hasValidNumberSequence(text ?? "")) {
+    if (!_hasValidNumberSequence(text ?? "")) {
       return _invalidValueFormat;
     }
 
@@ -76,8 +76,8 @@ class CnpjFormFieldOptionsDelegate implements FormFieldOptions {
 
   /// Check's if the current text string is valid
   bool _hasValidNumberSequence(String cnpj) {
-    if (cnpj.isEmpty) return false;
+    if (cnpj.isEmpty || StringUtils.digitsOnly(cnpj).length != 14) return false;
     final sameRepeatedNumbers = RegExp(r'(?!(\d)\1{13})\d{14}');
-    return sameRepeatedNumbers.hasMatch(cnpj);
+    return sameRepeatedNumbers.hasMatch(StringUtils.digitsOnly(cnpj));
   }
 }
