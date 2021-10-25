@@ -41,7 +41,7 @@ void main() {
 
       expect(found, findsOneWidget);
       expect(widget.formFieldTypeSB, FormFieldTypeSB.cpf);
-      expect(widget.formFieldOptions.inputMasks!.first, InputMasks.cpfMask);
+      expect(widget.formFieldOptions.inputMasks!.first, InputMasks.cpf);
       expect(widget.controller!.text, validCPF);
       expect(find.text(validCPF), findsOneWidget);
     });
@@ -69,9 +69,36 @@ void main() {
 
       expect(found, findsOneWidget);
       expect(widget.formFieldTypeSB, FormFieldTypeSB.cnpj);
-      expect(widget.formFieldOptions.inputMasks!.first, InputMasks.cnpjMask);
+      expect(widget.formFieldOptions.inputMasks!.first, InputMasks.cnpj);
       expect(widget.controller!.text, validCNPJ);
       expect(find.text(validCNPJ), findsOneWidget);
+    });
+
+    testWidgets("Type Phone", (WidgetTester tester) async {
+      const String validPhoneFormat = "(11) 1 1111-1111";
+      const String unMaskedPhone = "11111111111";
+      final _controller = TextEditingController();
+      final formfieldSB = _makeTestableFormField(
+        TextFormFieldSB(
+            controller: _controller,
+            formFieldTypeSB: FormFieldTypeSB.phone,
+            labelText: 'Telefone',
+            hintText: '(00) 0 0000-0000'),
+      );
+      await tester.pumpWidget(formfieldSB);
+
+      final found = find.byType(TextFormFieldSB);
+      final widget = tester.firstWidget(found) as TextFormFieldSB;
+
+      await tester.enterText(found, unMaskedPhone);
+
+      await tester.pump();
+
+      expect(found, findsOneWidget);
+      expect(widget.formFieldTypeSB, FormFieldTypeSB.phone);
+      expect(widget.formFieldOptions.inputMasks!.first, InputMasks.phone);
+      expect(widget.controller!.text, validPhoneFormat);
+      expect(find.text(validPhoneFormat), findsOneWidget);
     });
   });
 }

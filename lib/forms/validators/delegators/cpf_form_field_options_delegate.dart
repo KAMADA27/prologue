@@ -69,5 +69,5 @@ class CpfFormFieldOptionsDelegate implements FormFieldOptions {
   }
 
   @override
-  List<MaskTextInputFormatter>? inputMasks = [InputMasks.cpfMask];
+  List<MaskTextInputFormatter>? inputMasks = [InputMasks.cpf];
 }

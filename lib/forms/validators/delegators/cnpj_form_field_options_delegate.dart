@@ -9,7 +9,7 @@ class CnpjFormFieldOptionsDelegate implements FormFieldOptions {
   FocusNode? focusNode;
 
   @override
-  List<MaskTextInputFormatter>? inputMasks = [InputMasks.cnpjMask];
+  List<MaskTextInputFormatter>? inputMasks = [InputMasks.cnpj];
 
   final String _invalidValue = "CNPJ inválido";
 
