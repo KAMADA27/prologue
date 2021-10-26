@@ -23,5 +23,5 @@ void main() {
     expect(find.byType(IconButtonSB), findsOneWidget);
     expect(find.byIcon(Icons.visibility), findsOneWidget);
     expect(pressed, true);
-  });  
+  });
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:prologue/forms/masks/masks.dart';
 import 'package:prologue/forms/validators/form_field_options.dart';
+import 'package:prologue/utils/string_utils.dart';
 
 class CpfFormFieldOptionsDelegate implements FormFieldOptions {
   final String _invalidCpf = 'Cpf inválido';
@@ -19,7 +20,7 @@ class CpfFormFieldOptionsDelegate implements FormFieldOptions {
   /// Check if CPF has a valid format and remove the non numeric characters
   String checkFormatAndRemoveInvalidCharacters(String? cpf) {
     cpf = RegExp(r'^\d{3}\.\d{3}\.\d{3}\-\d{2}$').stringMatch(cpf.toString());
-    cpf = cpf == null ? '' : cpf.replaceAll(RegExp(r'[^0-9]'), '');
+    cpf = cpf == null ? '' : StringUtils.digitsOnly(cpf);
     return cpf;
   }
 
@@ -68,5 +69,5 @@ class CpfFormFieldOptionsDelegate implements FormFieldOptions {
   }
 
   @override
-  List<MaskTextInputFormatter>? inputMasks = [InputMasks.cpfMask];
+  List<MaskTextInputFormatter>? inputMasks = [InputMasks.cpf];
 }

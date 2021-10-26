@@ -1,12 +1,9 @@
-import 'dart:developer';
-
-import 'package:flutter/src/widgets/focus_manager.dart';
-import 'package:flutter/src/services/text_input.dart';
-import 'package:flutter/src/material/input_decorator.dart';
+import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:prologue/forms/validators/validator.dart';
+import 'package:prologue/forms/masks/masks.dart';
+import 'package:prologue/forms/validators/form_field_options.dart';
 
-class PhoneValidatorDelegate implements Validator {
+class PhoneFormFieldOptionsDelegate implements FormFieldOptions {
   final String _phoneMandatory = 'O telefone é obrigatório';
   final String _phoneFormatInvalid = 'O formato do telefone é invalido';
 
@@ -14,13 +11,10 @@ class PhoneValidatorDelegate implements Validator {
   FocusNode? focusNode;
 
   @override
-  InputDecoration? inputDecoration = const InputDecoration(
-      floatingLabelBehavior: FloatingLabelBehavior.always,
-      labelText: 'Telefone',
-      hintText: '(00) 0 0000-0000');
+  TextInputType textInputType = TextInputType.number;
 
   @override
-  TextInputType textInputType = TextInputType.number;
+  List<MaskTextInputFormatter>? inputMasks = [InputMasks.phone];
 
   @override
   String? validate({String? text = '', bool mandatory = false}) {
