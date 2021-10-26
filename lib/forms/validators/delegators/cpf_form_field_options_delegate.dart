@@ -22,7 +22,7 @@ class CpfFormFieldOptionsDelegate implements FormFieldOptions {
 
   CpfFormFieldOptionsDelegate({this.focusNode});
 
-  /// Check if CPF has a valid format and remove the non numeric characters
+  // Check if CPF has a valid format and remove the non numeric characters
   String checkFormatAndRemoveInvalidCharacters(String? cpf) {
     cpf = RegExp(r'^\d{3}\.\d{3}\.\d{3}\-\d{2}$').stringMatch(cpf.toString());
     cpf = cpf == null ? '' : cpf.digitsOnly();
