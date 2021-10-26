@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+
+import 'package:prologue/forms/masks/masks.dart';
 import 'package:prologue/forms/validators/form_field_options.dart';
 
-class TextFormFieldOptionsDelegate implements FormFieldOptions {
+class CurrencyFormFieldOptionsDelegate implements FormFieldOptions {
   @override
   FocusNode? focusNode;
 
   @override
-  List<TextInputFormatter>? inputMasks;
+  List<TextInputFormatter>? inputMasks = [InputMasks.currency];
 
   @override
-  TextInputType textInputType = TextInputType.text;
+  TextInputType textInputType = TextInputType.number;
 
   @override
   String? validate({String? text, bool mandatory = false}) {

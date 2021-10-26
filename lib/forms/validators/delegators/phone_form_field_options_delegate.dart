@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:prologue/forms/masks/masks.dart';
 import 'package:prologue/forms/validators/form_field_options.dart';
@@ -14,7 +15,7 @@ class PhoneFormFieldOptionsDelegate implements FormFieldOptions {
   TextInputType textInputType = TextInputType.number;
 
   @override
-  List<MaskTextInputFormatter>? inputMasks = [InputMasks.phone];
+  List<TextInputFormatter>? inputMasks = [InputMasks.phone];
 
   @override
   String? validate({String? text = '', bool mandatory = false}) {
