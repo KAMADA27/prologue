@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:prologue/forms/validators/validator.dart';
 
 /// Abstraction to implement a FormFieldOptionsDelegate class
 /// holds the required properties and validation to a [TextFormFieldSB].
@@ -29,5 +27,4 @@ abstract class FormFieldOptions {
   ///   }
   /// ```
   String? validate({String? text, bool mandatory = false});
-
 }

@@ -9,16 +9,19 @@ void main() {
   testWidgets("Icon button test", (WidgetTester tester) async {
     var pressed = false;
 
-    final widget = IconButtonSB(icon: Icons.visibility, onPressed: () {
-      pressed = true;
-    });
+    final widget = IconButtonSB(
+        icon: Icons.visibility,
+        onPressed: () {
+          pressed = true;
+        });
 
     await tester.pumpWidget(_makeTestable(widget));
     await tester.tap(find.byType(TextButton));
 
-    final iconButton = tester.widget<IconButtonSB>(
-      find.byType(IconButtonSB)
-    );
+    // TODO verificar uso da variavel iconButton
+    // final iconButton = tester.widget<IconButtonSB>(
+    //   find.byType(IconButtonSB)
+    // );
 
     expect(find.byType(IconButtonSB), findsOneWidget);
     expect(find.byIcon(Icons.visibility), findsOneWidget);

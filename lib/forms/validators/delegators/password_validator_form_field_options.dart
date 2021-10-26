@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:prologue/forms/validators/validator.dart';
+import 'package:flutter/services.dart';
+import 'package:prologue/forms/validators/form_field_options.dart';
 
-class PasswordValidatorDelegate implements Validator {
+class PasswordValidatorDelegate implements FormFieldOptions {
   final String _invalidPassword = 'Senha inválido';
   final String _invalidLength = 'Necessário 6 dígitos';
 
@@ -9,17 +10,10 @@ class PasswordValidatorDelegate implements Validator {
   late final FocusNode? focusNode;
 
   @override
-  late InputDecoration? inputDecoration = const InputDecoration(
-    floatingLabelBehavior: FloatingLabelBehavior.always,
-    labelText: 'Senha',
-    hintText: 'Senha'
-  );
-
-  @override
   late TextInputType textInputType = TextInputType.number;
 
   @override
-  String? validate({ String? text = '', bool mandatory = false }) {
+  String? validate({String? text = '', bool mandatory = false}) {
     if (text!.isEmpty && mandatory) {
       return _invalidPassword;
     }
@@ -29,5 +23,8 @@ class PasswordValidatorDelegate implements Validator {
     }
   }
 
-  PasswordValidatorDelegate({ this.focusNode });
+  PasswordValidatorDelegate({this.focusNode});
+
+  @override
+  List<TextInputFormatter>? inputMasks;
 }
