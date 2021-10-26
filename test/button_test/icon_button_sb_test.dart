@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:prologue/widgets/buttons/icon_button_sb.dart';
+import 'package:prologue/buttons/icon_button_sb.dart';
 
 Widget _makeTestable(Widget widget) => MaterialApp(home: widget);
 

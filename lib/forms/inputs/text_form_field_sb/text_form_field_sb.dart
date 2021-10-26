@@ -48,7 +48,7 @@ class TextFormFieldSB extends StatelessWidget {
       maxLength: maxLength,
       onChanged: onChanged,
       validator: (text) =>
-          _formFieldOptions.validate(text: text, mandatory: mandatory ?? false),
+        _formFieldOptions.validate(text: text, mandatory: mandatory ?? false),
       keyboardType: _formFieldOptions.textInputType,
       focusNode: _formFieldOptions.focusNode,
       decoration: InputDecoration(
@@ -56,8 +56,8 @@ class TextFormFieldSB extends StatelessWidget {
         hintText: hintText,
       ),
       inputFormatters: (FormFieldTypeSB.none == formFieldTypeSB)
-          ? inputFormatters
-          : _formFieldOptions.inputMasks,
+        ? inputFormatters
+        : _formFieldOptions.inputMasks,
     );
   }
 }
