@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:prologue/forms/masks/masks.dart';
 import 'package:prologue/forms/validators/form_field_options.dart';
-import 'package:prologue/utils/string_utils.dart';
+import 'package:prologue/utils/string_utils_extension.dart';
 
 class CnpjFormFieldOptionsDelegate implements FormFieldOptions {
   @override
@@ -63,7 +63,7 @@ class CnpjFormFieldOptionsDelegate implements FormFieldOptions {
   /// Efetua a validação se o valor apresentado como dígito verificador
   /// é igual a da validação.
   bool _hasValidCNPJ(String string) {
-    String digits = StringUtils.digitsOnly(string);
+    String digits = string.digitsOnly();
     StringBuffer registrationBloc = StringBuffer();
     registrationBloc
         .write(_verifyDigitsCNPJ(digits.characters.take(12).string));
@@ -76,8 +76,8 @@ class CnpjFormFieldOptionsDelegate implements FormFieldOptions {
 
   /// Check's if the current text string is valid
   bool _hasValidNumberSequence(String cnpj) {
-    if (cnpj.isEmpty || StringUtils.digitsOnly(cnpj).length != 14) return false;
+    if (cnpj.isEmpty || cnpj.digitsOnly().length != 14) return false;
     final sameRepeatedNumbers = RegExp(r'(?!(\d)\1{13})\d{14}');
-    return sameRepeatedNumbers.hasMatch(StringUtils.digitsOnly(cnpj));
+    return sameRepeatedNumbers.hasMatch(cnpj.digitsOnly());
   }
 }

@@ -4,7 +4,7 @@ import 'package:prologue/forms/inputs/text_form_field_sb/form_field_type_enum_sb
 import 'package:prologue/forms/inputs/text_form_field_sb/text_form_field_sb.dart';
 
 void main() {
-  testWidgets('Should validate a invalid CPF', (WidgetTester tester) async {
+  testWidgets('Should validate a phone format', (WidgetTester tester) async {
     final _formKey = GlobalKey<FormState>();
 
     Widget _makeTestableFormField(Widget widget) {
@@ -31,7 +31,7 @@ void main() {
     _formKey.currentState!.validate();
     await tester.pump();
 
-    expect(find.text("Cpf inválido"), findsOneWidget);
-    expect(find.text("000.000.000-00"), findsOneWidget);
+    expect(find.text("(34) 9 9999-1234".toString()), findsOneWidget);
   });
+
 }
