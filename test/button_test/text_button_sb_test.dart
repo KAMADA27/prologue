@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:prologue/buttons/text_button_sb.dart';
 
-import 'package:prologue/enums/button.dart';
+import 'package:prologue/buttons/button_enum.dart';
 
 Widget _makeTestable(Widget widget) => MaterialApp(home: widget);
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'package:prologue/forms/validators/form_field_options.dart';
 
 class EmailValidatorDelegate implements FormFieldOptions {
@@ -10,6 +11,9 @@ class EmailValidatorDelegate implements FormFieldOptions {
 
   @override
   late TextInputType textInputType = TextInputType.emailAddress;
+
+  @override
+  List<TextInputFormatter>? inputMasks;
 
   @override
   String? validate({String? text = '', bool mandatory = false}) {
@@ -33,7 +37,4 @@ class EmailValidatorDelegate implements FormFieldOptions {
 
     return true;
   }
-
-  @override
-  List<TextInputFormatter>? inputMasks;
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
-import 'package:prologue/enums/button.dart';
+import 'package:prologue/buttons/button_enum.dart';
 
 import 'package:prologue/buttons/text_button_sb.dart';
 import 'package:prologue/buttons/rounded_button_sb.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:prologue/enums/button.dart';
+import 'package:prologue/buttons/button_enum.dart';
 import 'package:prologue/constants/colors_sb.dart';
 
 class TextButtonSB extends StatelessWidget {

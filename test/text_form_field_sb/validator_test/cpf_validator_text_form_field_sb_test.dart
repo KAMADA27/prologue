@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+
 import 'package:prologue/forms/inputs/text_form_field_sb/form_field_type_enum_sb.dart';
 import 'package:prologue/forms/inputs/text_form_field_sb/text_form_field_sb.dart';
 
 void main() {
-
   testWidgets('Should validate a invalid CPF', (WidgetTester tester) async {
     final _formKey = GlobalKey<FormState>();
 
@@ -32,7 +32,7 @@ void main() {
     _formKey.currentState!.validate();
     await tester.pump();
 
-    expect(find.text("Cpf inválido"), findsOneWidget);
+    expect(find.text("CPF inválido"), findsOneWidget);
     expect(find.text("000.000.000-00"), findsOneWidget);
   });
 
@@ -63,7 +63,7 @@ void main() {
     _formKey.currentState!.validate();
     await tester.pump();
 
-    expect(find.text("Formato de cpf inválido"), findsOneWidget);
+    expect(find.text("Formato de CPF inválido"), findsOneWidget);
   });
 
   testWidgets('CPF field MUST be mandatory', (WidgetTester tester) async {
@@ -94,6 +94,6 @@ void main() {
     _formKey.currentState!.validate();
     await tester.pump();
 
-    expect(find.text("Cpf obrigatório"), findsOneWidget);
+    expect(find.text("CPF obrigatório"), findsOneWidget);
   });
 }

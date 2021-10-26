@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:prologue/constants/colors_sb.dart';
-import 'package:prologue/enums/button.dart';
+import 'package:prologue/buttons/button_enum.dart';
 
 class RoundedButtonSB extends StatelessWidget {
   final String text;
@@ -72,6 +72,7 @@ class RoundedButtonSB extends StatelessWidget {
       child: Text(
         text,
         style: const TextStyle(fontWeight: FontWeight.bold),
+        textAlign: TextAlign.center,
       ),
       style: _getButtonStyle()
     );

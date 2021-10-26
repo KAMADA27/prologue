@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:prologue/forms/masks/masks.dart';
-import 'package:prologue/forms/validators/form_field_options.dart';
+
 import 'package:prologue/utils/string_utils_extension.dart';
 
+import 'package:prologue/forms/masks/masks.dart';
+import 'package:prologue/forms/validators/form_field_options.dart';
+
 class CpfFormFieldOptionsDelegate implements FormFieldOptions {
-  final String _invalidCpf = 'Cpf inválido';
-  final String _invalidFormat = 'Formato de cpf inválido';
-  final String _cpfMandatory = 'Cpf obrigatório';
+  final String _invalidCpf = 'CPF inválido';
+  final String _invalidFormat = 'Formato de CPF inválido';
+  final String _cpfMandatory = 'CPF obrigatório';
 
   @override
   late final FocusNode? focusNode;
 
   @override
   late TextInputType textInputType = TextInputType.number;
+
+  @override
+  List<TextInputFormatter>? inputMasks = [InputMasks.cpf];
 
   CpfFormFieldOptionsDelegate({this.focusNode});
 
@@ -50,13 +55,17 @@ class CpfFormFieldOptionsDelegate implements FormFieldOptions {
     if (mandatory && text!.isEmpty) {
       return _cpfMandatory;
     }
+
     String cpf = checkFormatAndRemoveInvalidCharacters(text);
+
     if (cpf.isEmpty || cpf.length != 11) {
       return _invalidFormat;
     }
+
     if (!_hasValidNumberSequence(cpf)) {
       return _invalidCpf;
     }
+
     dynamic numbers = cpf.substring(0, 9);
     numbers += verifyDigit(numbers).toString();
     numbers += verifyDigit(numbers).toString();
@@ -67,7 +76,4 @@ class CpfFormFieldOptionsDelegate implements FormFieldOptions {
       return _invalidCpf;
     }
   }
-
-  @override
-  List<TextInputFormatter>? inputMasks = [InputMasks.cpf];
 }

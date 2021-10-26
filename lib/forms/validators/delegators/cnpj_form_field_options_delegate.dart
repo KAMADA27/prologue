@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import 'package:prologue/utils/string_utils_extension.dart';
+
 import 'package:prologue/forms/masks/masks.dart';
 import 'package:prologue/forms/validators/form_field_options.dart';
-import 'package:prologue/utils/string_utils_extension.dart';
 
 class CnpjFormFieldOptionsDelegate implements FormFieldOptions {
   @override
@@ -41,18 +43,19 @@ class CnpjFormFieldOptionsDelegate implements FormFieldOptions {
   int _verifyDigitsCNPJ(String string) {
     const int base = 11;
     int currentWeight = 1;
+
     final int sum = string
-        .split('')
-        .reversed
-        .map((element) {
-          if (currentWeight >= 9) {
-            currentWeight = 1;
-          }
-          currentWeight++;
-          return int.parse(element) * currentWeight;
-        })
-        .fold(0, (int previousValue, element) => previousValue + element)
-        .toInt();
+      .split('')
+      .reversed
+      .map((element) {
+        if (currentWeight >= 9) {
+          currentWeight = 1;
+        }
+        currentWeight++;
+        return int.parse(element) * currentWeight;
+      })
+      .fold(0, (int previousValue, element) => previousValue + element)
+      .toInt();
 
     final int module = sum % base;
     final value = base - module;
@@ -65,13 +68,14 @@ class CnpjFormFieldOptionsDelegate implements FormFieldOptions {
   bool _hasValidCNPJ(String string) {
     String digits = string.digitsOnly();
     StringBuffer registrationBloc = StringBuffer();
+
     registrationBloc
-        .write(_verifyDigitsCNPJ(digits.characters.take(12).string));
+      .write(_verifyDigitsCNPJ(digits.characters.take(12).string));
     registrationBloc
-        .write(_verifyDigitsCNPJ(digits.characters.take(13).string));
+      .write(_verifyDigitsCNPJ(digits.characters.take(13).string));
 
     return registrationBloc.toString() ==
-        string.substring(string.length - 2, string.length);
+      string.substring(string.length - 2, string.length);
   }
 
   /// Check's if the current text string is valid

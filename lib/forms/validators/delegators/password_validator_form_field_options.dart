@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'package:prologue/forms/validators/form_field_options.dart';
 
 class PasswordValidatorDelegate implements FormFieldOptions {
@@ -13,6 +14,9 @@ class PasswordValidatorDelegate implements FormFieldOptions {
   late TextInputType textInputType = TextInputType.number;
 
   @override
+  List<TextInputFormatter>? inputMasks;
+
+  @override
   String? validate({String? text = '', bool mandatory = false}) {
     if (text!.isEmpty && mandatory) {
       return _invalidPassword;
@@ -24,7 +28,4 @@ class PasswordValidatorDelegate implements FormFieldOptions {
   }
 
   PasswordValidatorDelegate({this.focusNode});
-
-  @override
-  List<TextInputFormatter>? inputMasks;
 }
